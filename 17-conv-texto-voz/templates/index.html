@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Texto a Voz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 10px;
+        }
+        .box {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+        textarea {
+            width: 100%;
+            min-height: 200px;
+            resize: none;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #cccccc;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+    </style>
+    <script>
+        async function speak() {
+            const text = document.getElementById("text").value;
+            const response = await fetch("/speak", {
+                method: "POST",
+                body: new FormData(document.getElementById("form"))
+            });
+            if (response.ok) {
+                console.log("Texto enviado para reproducir.");
+            }
+        }
+
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="box">
+        <form id="form">
+            <textarea id="text" name="text" placeholder="Escribe el texto aquí..."></textarea>
+            <button type="button" onclick="speak()">Leer</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
