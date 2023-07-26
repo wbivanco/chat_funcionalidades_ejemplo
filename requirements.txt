@@ -3,3 +3,8 @@ Flask.CORS
 requests
 openai
 python-dotenv
+pyttsx3
+SpeechRecognition
+pydub
+
+# pip install --upgrade wheel

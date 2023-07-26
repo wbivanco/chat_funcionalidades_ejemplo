@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herramientas con y sin OpenAI</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div id="listado">
+    <h2>Elija algunas de las siguientes opciones:</h2>
+    <ul>
+        <li><a href="{{url_for('chat')}}">Chat</a></li>
+        <li><a href="{{url_for('hablar')}}">Traducir de texto a voz</a></li>
+        <li><a href="{{url_for('transcribir')}}">Traducir de voz a texto</a></li>
+    </ul>    
+</div>
+</body>
+</html>

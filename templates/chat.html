@@ -22,7 +22,7 @@
                 $("#chat-log").append(`<p>User: ${userMessage}</p>`);
 
                 $.ajax({
-                    url: '/api/chat',
+                    url: '/chat_procesar',
                     type: 'POST',
                     contentType: 'application/json',
                     dataType: 'json',
@@ -39,7 +39,9 @@
                 $("#user-message").val('');
             });
         });
-
 </script>
+
+<a href="{{url_for('index')}}">Volver</a>
+
 </body>
 </html>
