@@ -53,6 +53,29 @@ def chat_procesar():
     return jsonify({'message': ai_message})
 
 
+### Imagen ###
+# Carga pantalla de ingreso de prompt
+@app.route('/imagen', methods=['GET'])
+def imagen():
+    return render_template('imagen.html')
+
+
+# Procesa imagen
+@app.route('/imagen_procesar', methods=['POST'])
+def imagen_procesar():
+    openai.api_key = openai_key
+
+    prompt = request.json.get('message', '')
+
+    response = openai.Image.create(    
+        prompt=prompt,
+        n=2,
+        size='1024x1024'
+    )
+    ai_message = response['data'][0]['url']
+    return jsonify({'message': ai_message})
+
+
 ### Texto a voz ###
 # Carga pantalla de ingreso de texto
 @app.route("/hablar")
